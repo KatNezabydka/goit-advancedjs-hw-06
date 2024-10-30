@@ -3,15 +3,15 @@
   Доповніть цю функцію, використовуючи generics, щоб вона повертала правильний тип.
 */
 
-function getPromise () {
-  return new Promise((resolve) => {
-    resolve(['Text', 50]);
-  });
+function getPromise<T>(): Promise<T[]> {
+    return new Promise((resolve): void => {
+        resolve(['Text', 50] as T[]);
+    });
 }
 
-getPromise()
-.then((data) => {
-  console.log(data);
-});
+getPromise<[string, number]>()
+    .then((data: [string, number][]): void => {
+        console.log(data);
+    });
 
 export {};
